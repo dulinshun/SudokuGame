@@ -14,7 +14,6 @@
 		EE9EABD724F4DCD6000EB292 /* SudoKuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EABD624F4DCD6000EB292 /* SudoKuManager.swift */; };
 		EE9EABD924F509C8000EB292 /* GameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EABD824F509C8000EB292 /* GameItem.swift */; };
 		EE9EABDD24F51529000EB292 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EABDC24F51529000EB292 /* GridView.swift */; };
-		EE9EABDF24F51B30000EB292 /* SudoKuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EABDE24F51B30000EB292 /* SudoKuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		EE9EABD624F4DCD6000EB292 /* SudoKuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoKuManager.swift; sourceTree = "<group>"; };
 		EE9EABD824F509C8000EB292 /* GameItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItem.swift; sourceTree = "<group>"; };
 		EE9EABDC24F51529000EB292 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		EE9EABDE24F51B30000EB292 /* SudoKuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoKuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +63,6 @@
 				EE9EABD624F4DCD6000EB292 /* SudoKuManager.swift */,
 				EE9EABD824F509C8000EB292 /* GameItem.swift */,
 				EE9EABDC24F51529000EB292 /* GridView.swift */,
-				EE9EABDE24F51B30000EB292 /* SudoKuItem.swift */,
 				EE1E44C224F36075000324A6 /* Assets.xcassets */,
 				EE1E44C424F36075000324A6 /* LaunchScreen.storyboard */,
 				EE1E44C724F36075000324A6 /* Info.plist */,
@@ -148,7 +145,6 @@
 				EE9EABDD24F51529000EB292 /* GridView.swift in Sources */,
 				EE9EABD924F509C8000EB292 /* GameItem.swift in Sources */,
 				EE1E44CE24F360AE000324A6 /* GameController.swift in Sources */,
-				EE9EABDF24F51B30000EB292 /* SudoKuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

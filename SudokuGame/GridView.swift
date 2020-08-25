@@ -38,8 +38,8 @@ class GridView: UIView {
             var aItems: [GameItem] = []
             for j in 0 ..< 9 {
                 let item = GameItem()
-                item.row = i
-                item.column = j
+                item.set(row: i)
+                item.set(column: j)
                 item.backgroundColor = .lightGray
                 addSubview(item)
                 aItems.append(item)
@@ -81,6 +81,25 @@ class GridView: UIView {
     }
 }
 
+private extension GridView {
+    
+    func updateItemsTheme() {
+        for i in 0 ..< 9 {
+            for j in 0 ..< 9 {
+                let item = items[i][j]
+                if let selectedItem = selectedItem {
+                    item.set(selected: selectedItem == item)
+                    item.set(isSameSelectedNumber: selectedItem.number == item.number)
+                } else {
+                    item.set(selected: false)
+                    item.set(isSameSelectedNumber: false)
+                    item.set(isError: false)
+                }
+            }
+        }
+    }
+}
+
 extension GridView {
     
     /// 添加方法
@@ -93,11 +112,18 @@ extension GridView {
     }
     
     func set(selected item: GameItem?) {
-        self.selectedItem = nil
+        if self.selectedItem == item { return }
         self.selectedItem = item
+        updateItemsTheme()
     }
 
     func set(numbers: [[Int]]) {
-        if numbers.count != items.count { return }
+        for i in 0 ..< 9 {
+            for j in 0 ..< 9 {
+                let item = items[i][j]
+                let number = numbers[i][j]
+                item.set(number: number)
+            }
+        }
     }
 }
