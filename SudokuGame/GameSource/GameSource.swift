@@ -12,7 +12,7 @@ class GameSource {
 
     /// 游戏等级
     /// 1. 变更之后会重置数据
-    private(set) var level: GameLevel = .low
+    var level: GameLevel = .low { didSet { reset() } }
     
     /// 源数据
     /// 1. 没有空格的数据
@@ -37,12 +37,6 @@ extension GameSource {
     func reset() {
         self.randomExchange()
         self.randomBlank()
-    }
-    
-    /// 设置游戏等级
-    func set(level: GameLevel) {
-        self.level = level
-        self.reset()
     }
 }
 
