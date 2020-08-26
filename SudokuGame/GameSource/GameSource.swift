@@ -50,9 +50,8 @@ extension GameSource {
 /// 私有操作
 private extension GameSource {
 
-    /// 随机调整
-    /// - Parameter frequency: 调整次数
     /// 交替性随机交换 行和列
+    /// - Parameter frequency: 调整次数
     func randomExchange(frequency: Int = 20) {
         if frequency <= 0 { return }
         randomExchangeColumn(a: 0, b: 1, c: 2)  // 随机交换前三列
