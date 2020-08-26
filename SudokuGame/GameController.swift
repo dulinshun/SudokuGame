@@ -23,7 +23,7 @@ class GameController: UIViewController {
         super.viewDidLoad()
         self.title = level.title
         let item1 = UIBarButtonItem(title: "重置", style: .plain, target: self, action: #selector(reset))
-        let item2 = UIBarButtonItem(title: "提示", style: .plain, target: self, action: #selector(prompt))
+        let item2 = UIBarButtonItem(title: "提示", style: .plain, target: self, action: #selector(chengPrompt))
         self.navigationItem.rightBarButtonItems = [item1, item2]
         
         self.view.backgroundColor = .white
@@ -67,7 +67,7 @@ extension GameController {
         self.present(alertContoller, animated: true, completion: nil)
     }
     
-    @objc func prompt() {
+    @objc func chengPrompt() {
         gridView.isPrompt = !gridView.isPrompt
     }
     
