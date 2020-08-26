@@ -25,6 +25,10 @@ class GridView: UIView {
     
     private var selectedItem: GameItem? //选中的item
     
+    public var successCallBack: (() -> Void)? // 成功回调
+    
+    public var isPrompt = false { didSet{ updateIsPrompt() } }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -34,12 +38,11 @@ class GridView: UIView {
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 2
         
-        for i in 0 ..< 9 {
+        for _ in 0 ..< 9 {
             var aItems: [GameItem] = []
-            for j in 0 ..< 9 {
+            for _ in 0 ..< 9 {
                 let item = GameItem()
-                item.set(row: i)
-                item.set(column: j)
+                item.addTarget(self, action: #selector(selectedItem(item:)), for: .touchUpInside)
                 item.backgroundColor = .lightGray
                 addSubview(item)
                 aItems.append(item)
@@ -87,43 +90,96 @@ private extension GridView {
         for i in 0 ..< 9 {
             for j in 0 ..< 9 {
                 let item = items[i][j]
-                if let selectedItem = selectedItem {
-                    item.set(selected: selectedItem == item)
-                    item.set(isSameSelectedNumber: selectedItem.number == item.number)
-                } else {
-                    item.set(selected: false)
-                    item.set(isSameSelectedNumber: false)
-                    item.set(isError: false)
-                }
+                item.isSelectedNumber = item.displayNumber == selectedItem?.displayNumber
+            }
+        }
+    }
+    
+    @objc func selectedItem(item: GameItem) {
+        if self.selectedItem == item { return }
+        self.selectedItem?.isSelected = false
+        item.isSelected = true
+        self.selectedItem = item
+        updateItemsTheme()
+    }
+    
+    func items(column: Int) -> [GameItem] {
+        var items: [GameItem] = []
+        for i in 0 ..< 9 {
+            items.append(self.items[i][column])
+        }
+        return items
+    }
+    
+    func items(row: Int) -> [GameItem] {
+        var items: [GameItem] = []
+        for i in 0 ..< 9 {
+            items.append(self.items[row][i])
+        }
+        return items
+    }
+    
+    func items(box: Int) -> [GameItem] {
+        var items: [GameItem] = []
+        let mx = box/3*3
+        let my = box%3*3
+        for i in mx ..< mx + 3 {
+            for j in my ..< my + 3{
+                items.append(self.items[i][j])
+            }
+        }
+        return items
+    }
+    
+    func check(items: [GameItem]) -> Bool {
+        let numbers = items.map{ $0.displayNumber }.sorted()
+        return numbers.elementsEqual([1, 2, 3, 4, 5, 6, 7, 8, 9])
+    }
+    
+    func checkSucces() {
+        for i in 0 ..< 9 {
+            if !check(items: items(row: i)) { return }
+            if !check(items: items(column: i)) { return }
+            if !check(items: items(box: i)) { return }
+        }
+        self.successCallBack?()
+    }
+    
+    func updateIsPrompt() {
+        for i in 0 ..< 9 {
+            for j in 0 ..< 9 {
+                let item = items[i][j]
+                item.isPrompt = isPrompt
             }
         }
     }
 }
 
 extension GridView {
-    
-    /// 添加方法
-    func addTarget(_ target: Any?, action: Selector) {
-        for items in items {
-            for item in items {
-                item.addTarget(target, action: action, for: .touchUpInside)
+
+    /// 设置源数据
+    func set(sourceData: [[Int]], displayData: [[Int]]) {
+        self.selectedItem?.isSelected = false
+        self.selectedItem = nil
+        self.isPrompt = false
+        updateItemsTheme()
+
+        for i in 0 ..< 9 {
+            for j in 0 ..< 9 {
+                let item = items[i][j]
+                item.sourceNumber = sourceData[i][j]
+                item.displayNumber = displayData[i][j]
+                item.isBlankItem = displayData[i][j] == 0
             }
         }
     }
     
-    func set(selected item: GameItem?) {
-        if self.selectedItem == item { return }
-        self.selectedItem = item
-        updateItemsTheme()
-    }
-
-    func set(numbers: [[Int]]) {
-        for i in 0 ..< 9 {
-            for j in 0 ..< 9 {
-                let item = items[i][j]
-                let number = numbers[i][j]
-                item.set(number: number)
-            }
+    /// 输入数字
+    func input(number: Int) {
+        if let item = selectedItem, !isPrompt {
+            item.displayNumber = number
+            updateItemsTheme()
+            checkSucces()
         }
     }
 }

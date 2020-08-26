@@ -20,7 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = GameController()
+        let nav = UINavigationController()
+        nav.pushViewController(LevelController(), animated: true)
+        window?.rootViewController = nav
         
         return true
     }

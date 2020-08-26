@@ -11,21 +11,27 @@
 		EE1E44C324F36075000324A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE1E44C224F36075000324A6 /* Assets.xcassets */; };
 		EE1E44C624F36075000324A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE1E44C424F36075000324A6 /* LaunchScreen.storyboard */; };
 		EE1E44CE24F360AE000324A6 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE1E44CD24F360AE000324A6 /* GameController.swift */; };
-		EE9EABD724F4DCD6000EB292 /* SudoKuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EABD624F4DCD6000EB292 /* SudoKuManager.swift */; };
 		EE9EABD924F509C8000EB292 /* GameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EABD824F509C8000EB292 /* GameItem.swift */; };
 		EE9EABDD24F51529000EB292 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9EABDC24F51529000EB292 /* GridView.swift */; };
+		EEBAE89E24F60B1E0030E14A /* LevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBAE89D24F60B1E0030E14A /* LevelController.swift */; };
+		EEBAE8A024F60EB00030E14A /* GameLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBAE89F24F60EB00030E14A /* GameLevel.swift */; };
+		EEBAE8A424F610E20030E14A /* GameSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBAE8A324F610E20030E14A /* GameSource.swift */; };
+		EEBAE8A824F62D4A0030E14A /* GameInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBAE8A724F62D4A0030E14A /* GameInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EE1E44B624F36071000324A6 /* SudokuGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SudokuGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE1E44B624F36071000324A6 /* 数独小游戏.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "数独小游戏.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE1E44B924F36071000324A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE1E44C224F36075000324A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE1E44C524F36075000324A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE1E44C724F36075000324A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE1E44CD24F360AE000324A6 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
-		EE9EABD624F4DCD6000EB292 /* SudoKuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SudoKuManager.swift; sourceTree = "<group>"; };
 		EE9EABD824F509C8000EB292 /* GameItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItem.swift; sourceTree = "<group>"; };
 		EE9EABDC24F51529000EB292 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		EEBAE89D24F60B1E0030E14A /* LevelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelController.swift; sourceTree = "<group>"; };
+		EEBAE89F24F60EB00030E14A /* GameLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLevel.swift; sourceTree = "<group>"; };
+		EEBAE8A324F610E20030E14A /* GameSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSource.swift; sourceTree = "<group>"; };
+		EEBAE8A724F62D4A0030E14A /* GameInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInput.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +56,7 @@
 		EE1E44B724F36071000324A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EE1E44B624F36071000324A6 /* SudokuGame.app */,
+				EE1E44B624F36071000324A6 /* 数独小游戏.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,15 +65,34 @@
 			isa = PBXGroup;
 			children = (
 				EE1E44B924F36071000324A6 /* AppDelegate.swift */,
+				EEBAE89D24F60B1E0030E14A /* LevelController.swift */,
 				EE1E44CD24F360AE000324A6 /* GameController.swift */,
-				EE9EABD624F4DCD6000EB292 /* SudoKuManager.swift */,
-				EE9EABD824F509C8000EB292 /* GameItem.swift */,
-				EE9EABDC24F51529000EB292 /* GridView.swift */,
+				EEBAE8A524F612F20030E14A /* GameSource */,
+				EEBAE8A624F614960030E14A /* GameView */,
 				EE1E44C224F36075000324A6 /* Assets.xcassets */,
 				EE1E44C424F36075000324A6 /* LaunchScreen.storyboard */,
 				EE1E44C724F36075000324A6 /* Info.plist */,
 			);
 			path = SudokuGame;
+			sourceTree = "<group>";
+		};
+		EEBAE8A524F612F20030E14A /* GameSource */ = {
+			isa = PBXGroup;
+			children = (
+				EEBAE89F24F60EB00030E14A /* GameLevel.swift */,
+				EEBAE8A324F610E20030E14A /* GameSource.swift */,
+			);
+			path = GameSource;
+			sourceTree = "<group>";
+		};
+		EEBAE8A624F614960030E14A /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				EE9EABD824F509C8000EB292 /* GameItem.swift */,
+				EE9EABDC24F51529000EB292 /* GridView.swift */,
+				EEBAE8A724F62D4A0030E14A /* GameInput.swift */,
+			);
+			path = GameView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,7 +112,7 @@
 			);
 			name = SudokuGame;
 			productName = SudokuGame;
-			productReference = EE1E44B624F36071000324A6 /* SudokuGame.app */;
+			productReference = EE1E44B624F36071000324A6 /* 数独小游戏.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -141,9 +166,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE1E44BA24F36071000324A6 /* AppDelegate.swift in Sources */,
-				EE9EABD724F4DCD6000EB292 /* SudoKuManager.swift in Sources */,
+				EEBAE8A024F60EB00030E14A /* GameLevel.swift in Sources */,
 				EE9EABDD24F51529000EB292 /* GridView.swift in Sources */,
 				EE9EABD924F509C8000EB292 /* GameItem.swift in Sources */,
+				EEBAE8A824F62D4A0030E14A /* GameInput.swift in Sources */,
+				EEBAE89E24F60B1E0030E14A /* LevelController.swift in Sources */,
+				EEBAE8A424F610E20030E14A /* GameSource.swift in Sources */,
 				EE1E44CE24F360AE000324A6 /* GameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +316,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.du.SudokuGame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "数独小游戏";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -306,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.du.SudokuGame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "数独小游戏";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
